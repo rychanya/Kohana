@@ -20,3 +20,20 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.2.2",
+    "httpx-sse>=0.4.0",
+    "anyio>=4.4.0",
+]
+dev = [
+    "ruff>=0.4.9",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
