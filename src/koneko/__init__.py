@@ -1,14 +1,22 @@
+from collections.abc import AsyncGenerator
+
 from litestar import Litestar, get
+from litestar.response import ServerSentEvent, ServerSentEventMessage
+from litestar.types import SSEData
 
 
-@get("/")
+@get(path="/")
 async def index() -> str:
     return "Hello, world!"
 
 
-@get("/books/{book_id:int}")
-async def get_book(book_id: int) -> dict[str, int]:
-    return {"book_id": book_id}
+async def generator() -> AsyncGenerator[SSEData, None]:
+    yield ServerSentEventMessage(data="test")
 
 
-app = Litestar([index, get_book])
+@get(path="/events")
+async def events() -> ServerSentEvent:
+    return ServerSentEvent(generator())
+
+
+app = Litestar(route_handlers=[index, events])
