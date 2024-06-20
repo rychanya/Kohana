@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
-        "litestar"
+        "aconnect",
+        "aiter",
+        "httpx",
+        "koneko",
+        "litestar",
+        "pytestmark"
     ]
 }
