@@ -1,10 +1,9 @@
 from collections.abc import AsyncIterator
 
 import pytest
+from koneko import app
 from litestar import Litestar
 from litestar.testing import AsyncTestClient
-
-from koneko import app
 
 
 @pytest.fixture

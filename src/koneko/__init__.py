@@ -1,35 +1,42 @@
 from asyncio import Queue, TimeoutError, wait_for
 from collections.abc import AsyncGenerator
 
-from litestar import Litestar, Request, get, post
+from litestar import Litestar, MediaType, get, post
 from litestar.response import ServerSentEvent, ServerSentEventMessage
 from litestar.types import SSEData
 
 
-@get(path="/")
+@get(path="/", media_type=MediaType.HTML)
 async def index() -> str:
-    return "Hello, world!"
+    # return "Hello, world!"
+    return """<html>
+    <body>
+        <div>
+            <span>Hello World!</span>
+        </div>
+    </body>
+    <script>
+        let eventSource;
+        eventSource = new EventSource('/events');
+    </script>
+</html>"""
 
 
-async def generator(queue: Queue[ServerSentEventMessage], request: Request) -> AsyncGenerator[SSEData, None]:
-    # yield ServerSentEventMessage(data="test")
+async def generator(queue: Queue[ServerSentEventMessage]) -> AsyncGenerator[SSEData, None]:
     while True:
         print(1)
         try:
             yield await wait_for(queue.get(), 1)
         except TimeoutError:
             pass
-        if not request.is_connected:
-            break
-    # yield await queue.get()
 
 
 @get(path="/events")
-async def events(request: Request) -> ServerSentEvent:
+async def events() -> ServerSentEvent:
     queue: Queue[ServerSentEventMessage] = Queue()
     await queue.put(ServerSentEventMessage(data="test"))
     await queue.put(ServerSentEventMessage(data="test_2"))
-    return ServerSentEvent(generator(queue, request))
+    return ServerSentEvent(generator(queue))
 
 
 @post(path="/events")
