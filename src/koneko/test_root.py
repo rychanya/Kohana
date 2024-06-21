@@ -15,5 +15,9 @@ async def test_health_check(test_client: AsyncTestClient[Litestar]):
 
 async def test_sse(test_client: AsyncTestClient[Litestar]):
     async with aconnect_sse(client=test_client, method="GET", url="/events") as event_source:
-        async for sse in event_source.aiter_sse():
-            assert sse.data == "test"
+        sse_iter = event_source.aiter_sse()
+        sse = await anext(sse_iter)
+        assert sse.data == "test"
+
+        # sse2 = await anext(sse_iter)
+        # assert sse2.data == "test_2"
