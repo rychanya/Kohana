@@ -5,14 +5,14 @@
 groups = ["default", "test", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:1a712639179f6fbff90b2d1b351c8165fa5d67e72138a08f261e5610c2d50051"
+content_hash = "sha256:d979108026eafadf221e017f1fb08f1802e63466b22cf76fb933e3c3de4547b0"
 
 [[package]]
 name = "anyio"
 version = "4.4.0"
 requires_python = ">=3.8"
 summary = "High level compatibility layer for multiple asynchronous event loop implementations"
-groups = ["default", "test"]
+groups = ["test"]
 dependencies = [
     "idna>=2.8",
     "sniffio>=1.1",
@@ -20,6 +20,30 @@ dependencies = [
 files = [
     {file = "anyio-4.4.0-py3-none-any.whl", hash = "sha256:c1b2d8f46a8a812513012e1107cb0e68c17159a7a594208005a57dc776e1bdc7"},
     {file = "anyio-4.4.0.tar.gz", hash = "sha256:5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"},
+]
+
+[[package]]
+name = "blacksheep"
+version = "2.0.7"
+requires_python = ">=3.7"
+summary = "Fast web framework for Python asyncio"
+groups = ["default"]
+dependencies = [
+    "certifi>=2022.9.24",
+    "charset-normalizer~=3.1.0",
+    "essentials-openapi<1.1,>=1.0.6",
+    "essentials<2.0,>=1.1.4",
+    "guardpost>=1.0.2",
+    "httptools>=0.5",
+    "itsdangerous~=2.1.2",
+    "python-dateutil~=2.8.2",
+    "rodi~=2.0.2",
+]
+files = [
+    {file = "blacksheep-2.0.7-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:36f5c7cd30b36bc076aed972ba68645acde0af59e6c2a5b6ab301bc27ec7a01e"},
+    {file = "blacksheep-2.0.7-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7d451f4c18d7af1852ee6cc52ab7a0bb0c435d1d6cd6c22d4238d229400c25b8"},
+    {file = "blacksheep-2.0.7-cp312-cp312-win_amd64.whl", hash = "sha256:fb2594c101241d4a983085667898a6f43024024d9722f8a3df16150f4bdd5d39"},
+    {file = "blacksheep-2.0.7.tar.gz", hash = "sha256:ae192809c1e42de5a0d6230f1238d027641a8d889a4a9fb5349b7980f74afd88"},
 ]
 
 [[package]]
@@ -31,6 +55,17 @@ groups = ["default"]
 files = [
     {file = "certifi-2024.6.2-py3-none-any.whl", hash = "sha256:ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56"},
     {file = "certifi-2024.6.2.tar.gz", hash = "sha256:3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516"},
+]
+
+[[package]]
+name = "charset-normalizer"
+version = "3.1.0"
+requires_python = ">=3.7.0"
+summary = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+groups = ["default"]
+files = [
+    {file = "charset-normalizer-3.1.0.tar.gz", hash = "sha256:34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"},
+    {file = "charset_normalizer-3.1.0-py3-none-any.whl", hash = "sha256:3d9098b479e78c85080c98e1e35ff40b4a31d8953102bb0fd7d1b6f8a2111a3d"},
 ]
 
 [[package]]
@@ -60,17 +95,43 @@ files = [
 ]
 
 [[package]]
-name = "faker"
-version = "25.8.0"
+name = "essentials"
+version = "1.1.5"
+summary = "General purpose classes and functions, reusable in any kind of Python application"
+groups = ["default"]
+files = [
+    {file = "essentials-1.1.5-py3-none-any.whl", hash = "sha256:905fa4a69fcd2b2cf41ecc6cc65827e30c87ef91f3f5c71540bcc5e984fa8360"},
+    {file = "essentials-1.1.5.tar.gz", hash = "sha256:8736f738bb2c51d5069b2de2cf9146f7d402f25f9f95636781e59a422c908c46"},
+]
+
+[[package]]
+name = "essentials-openapi"
+version = "1.0.9"
 requires_python = ">=3.8"
-summary = "Faker is a Python package that generates fake data for you."
+summary = "Classes to generate OpenAPI Documentation v3 and v2, in JSON and YAML."
 groups = ["default"]
 dependencies = [
-    "python-dateutil>=2.4",
+    "essentials>=1.1.5",
+    "markupsafe~=2.1.2",
+    "pyyaml>=6",
 ]
 files = [
-    {file = "Faker-25.8.0-py3-none-any.whl", hash = "sha256:4c40b34a9c569018d4f9d6366d71a4da8a883d5ddf2b23197be5370f29b7e1b6"},
-    {file = "Faker-25.8.0.tar.gz", hash = "sha256:bdec5f2fb057d244ebef6e0ed318fea4dcbdf32c3a1a010766fc45f5d68fc68d"},
+    {file = "essentials_openapi-1.0.9-py3-none-any.whl", hash = "sha256:1431e98ef0a442f1919fd9833385bf44d832c355fd05919dc06d43d4da0f8ef4"},
+    {file = "essentials_openapi-1.0.9.tar.gz", hash = "sha256:ebc46aac41c0b917a658f77caaa0ca93a6e4a4519de8a272f82c1538ccd5619f"},
+]
+
+[[package]]
+name = "guardpost"
+version = "1.0.2"
+requires_python = ">=3.7"
+summary = "Framework to handle authentication and authorization."
+groups = ["default"]
+dependencies = [
+    "rodi>=2.0.0",
+]
+files = [
+    {file = "guardpost-1.0.2-py3-none-any.whl", hash = "sha256:e7b7e5c61f776b055c7f4ee382ab78149bfe66f367f0e187574c3664e1740579"},
+    {file = "guardpost-1.0.2.tar.gz", hash = "sha256:4566616c1bc01c148275ed8d1cd56f7dffeced490c7d8c599c90293308e55c94"},
 ]
 
 [[package]]
@@ -85,36 +146,20 @@ files = [
 ]
 
 [[package]]
-name = "httpcore"
-version = "1.0.5"
-requires_python = ">=3.8"
-summary = "A minimal low-level HTTP client."
+name = "httptools"
+version = "0.6.1"
+requires_python = ">=3.8.0"
+summary = "A collection of framework independent HTTP protocol utils."
 groups = ["default"]
-dependencies = [
-    "certifi",
-    "h11<0.15,>=0.13",
-]
 files = [
-    {file = "httpcore-1.0.5-py3-none-any.whl", hash = "sha256:421f18bac248b25d310f3cacd198d55b8e6125c107797b609ff9b7a6ba7991b5"},
-    {file = "httpcore-1.0.5.tar.gz", hash = "sha256:34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"},
-]
-
-[[package]]
-name = "httpx"
-version = "0.27.0"
-requires_python = ">=3.8"
-summary = "The next generation HTTP client."
-groups = ["default"]
-dependencies = [
-    "anyio",
-    "certifi",
-    "httpcore==1.*",
-    "idna",
-    "sniffio",
-]
-files = [
-    {file = "httpx-0.27.0-py3-none-any.whl", hash = "sha256:71d5465162c13681bff01ad59b2cc68dd838ea1f10e51574bac27103f00c91a5"},
-    {file = "httpx-0.27.0.tar.gz", hash = "sha256:a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5"},
+    {file = "httptools-0.6.1-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:75c8022dca7935cba14741a42744eee13ba05db00b27a4b940f0d646bd4d56d0"},
+    {file = "httptools-0.6.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:48ed8129cd9a0d62cf4d1575fcf90fb37e3ff7d5654d3a5814eb3d55f36478c2"},
+    {file = "httptools-0.6.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6f58e335a1402fb5a650e271e8c2d03cfa7cea46ae124649346d17bd30d59c90"},
+    {file = "httptools-0.6.1-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:93ad80d7176aa5788902f207a4e79885f0576134695dfb0fefc15b7a4648d503"},
+    {file = "httptools-0.6.1-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:9bb68d3a085c2174c2477eb3ffe84ae9fb4fde8792edb7bcd09a1d8467e30a84"},
+    {file = "httptools-0.6.1-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:b512aa728bc02354e5ac086ce76c3ce635b62f5fbc32ab7082b5e582d27867bb"},
+    {file = "httptools-0.6.1-cp312-cp312-win_amd64.whl", hash = "sha256:97662ce7fb196c785344d00d638fc9ad69e18ee4bfb4000b35a52efe5adcc949"},
+    {file = "httptools-0.6.1.tar.gz", hash = "sha256:c6e26c30455600b95d94b1b836085138e82f177351454ee841c148f93a9bad5a"},
 ]
 
 [[package]]
@@ -133,7 +178,7 @@ name = "idna"
 version = "3.7"
 requires_python = ">=3.5"
 summary = "Internationalized Domain Names in Applications (IDNA)"
-groups = ["default", "test"]
+groups = ["test"]
 files = [
     {file = "idna-3.7-py3-none-any.whl", hash = "sha256:82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"},
     {file = "idna-3.7.tar.gz", hash = "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"},
@@ -151,94 +196,34 @@ files = [
 ]
 
 [[package]]
-name = "litestar"
-version = "2.9.0"
-requires_python = "<4.0,>=3.8"
-summary = "Litestar - A production-ready, highly performant, extensible ASGI API Framework"
-groups = ["default"]
-dependencies = [
-    "anyio>=3",
-    "click",
-    "httpx>=0.22",
-    "msgspec>=0.18.2",
-    "multidict>=6.0.2",
-    "polyfactory>=2.6.3",
-    "pyyaml",
-    "rich-click",
-    "rich>=13.0.0",
-    "typing-extensions",
-]
-files = [
-    {file = "litestar-2.9.0-py3-none-any.whl", hash = "sha256:25235ad99f08807e633347fa509dcf5989153bde9b6a82e521b1f056af33becc"},
-    {file = "litestar-2.9.0.tar.gz", hash = "sha256:bea384c9ddae74bcb0d96ecb6dc1b51f8a13d50173cdfd56bfd2627ede505154"},
-]
-
-[[package]]
-name = "markdown-it-py"
-version = "3.0.0"
-requires_python = ">=3.8"
-summary = "Python port of markdown-it. Markdown parsing, done right!"
-groups = ["default"]
-dependencies = [
-    "mdurl~=0.1",
-]
-files = [
-    {file = "markdown-it-py-3.0.0.tar.gz", hash = "sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"},
-    {file = "markdown_it_py-3.0.0-py3-none-any.whl", hash = "sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1"},
-]
-
-[[package]]
-name = "mdurl"
-version = "0.1.2"
+name = "itsdangerous"
+version = "2.1.2"
 requires_python = ">=3.7"
-summary = "Markdown URL utilities"
+summary = "Safely pass data to untrusted environments and back."
 groups = ["default"]
 files = [
-    {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
-    {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
+    {file = "itsdangerous-2.1.2-py3-none-any.whl", hash = "sha256:2c2349112351b88699d8d4b6b075022c0808887cb7ad10069318a8b0bc88db44"},
+    {file = "itsdangerous-2.1.2.tar.gz", hash = "sha256:5dbbc68b317e5e42f327f9021763545dc3fc3bfe22e6deb96aaf1fc38874156a"},
 ]
 
 [[package]]
-name = "msgspec"
-version = "0.18.6"
-requires_python = ">=3.8"
-summary = "A fast serialization and validation library, with builtin support for JSON, MessagePack, YAML, and TOML."
-groups = ["default"]
-files = [
-    {file = "msgspec-0.18.6-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:d86f5071fe33e19500920333c11e2267a31942d18fed4d9de5bc2fbab267d28c"},
-    {file = "msgspec-0.18.6-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ce13981bfa06f5eb126a3a5a38b1976bddb49a36e4f46d8e6edecf33ccf11df1"},
-    {file = "msgspec-0.18.6-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e97dec6932ad5e3ee1e3c14718638ba333befc45e0661caa57033cd4cc489466"},
-    {file = "msgspec-0.18.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ad237100393f637b297926cae1868b0d500f764ccd2f0623a380e2bcfb2809ca"},
-    {file = "msgspec-0.18.6-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:db1d8626748fa5d29bbd15da58b2d73af25b10aa98abf85aab8028119188ed57"},
-    {file = "msgspec-0.18.6-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:d70cb3d00d9f4de14d0b31d38dfe60c88ae16f3182988246a9861259c6722af6"},
-    {file = "msgspec-0.18.6-cp312-cp312-win_amd64.whl", hash = "sha256:1003c20bfe9c6114cc16ea5db9c5466e49fae3d7f5e2e59cb70693190ad34da0"},
-    {file = "msgspec-0.18.6.tar.gz", hash = "sha256:a59fc3b4fcdb972d09138cb516dbde600c99d07c38fd9372a6ef500d2d031b4e"},
-]
-
-[[package]]
-name = "multidict"
-version = "6.0.5"
+name = "markupsafe"
+version = "2.1.5"
 requires_python = ">=3.7"
-summary = "multidict implementation"
+summary = "Safely add untrusted strings to HTML/XML markup."
 groups = ["default"]
 files = [
-    {file = "multidict-6.0.5-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:51d035609b86722963404f711db441cf7134f1889107fb171a970c9701f92e1e"},
-    {file = "multidict-6.0.5-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:cbebcd5bcaf1eaf302617c114aa67569dd3f090dd0ce8ba9e35e9985b41ac35b"},
-    {file = "multidict-6.0.5-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:2ffc42c922dbfddb4a4c3b438eb056828719f07608af27d163191cb3e3aa6cc5"},
-    {file = "multidict-6.0.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ceb3b7e6a0135e092de86110c5a74e46bda4bd4fbfeeb3a3bcec79c0f861e450"},
-    {file = "multidict-6.0.5-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:79660376075cfd4b2c80f295528aa6beb2058fd289f4c9252f986751a4cd0496"},
-    {file = "multidict-6.0.5-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:e4428b29611e989719874670fd152b6625500ad6c686d464e99f5aaeeaca175a"},
-    {file = "multidict-6.0.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d84a5c3a5f7ce6db1f999fb9438f686bc2e09d38143f2d93d8406ed2dd6b9226"},
-    {file = "multidict-6.0.5-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:76c0de87358b192de7ea9649beb392f107dcad9ad27276324c24c91774ca5271"},
-    {file = "multidict-6.0.5-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:79a6d2ba910adb2cbafc95dad936f8b9386e77c84c35bc0add315b856d7c3abb"},
-    {file = "multidict-6.0.5-cp312-cp312-musllinux_1_1_i686.whl", hash = "sha256:92d16a3e275e38293623ebf639c471d3e03bb20b8ebb845237e0d3664914caef"},
-    {file = "multidict-6.0.5-cp312-cp312-musllinux_1_1_ppc64le.whl", hash = "sha256:fb616be3538599e797a2017cccca78e354c767165e8858ab5116813146041a24"},
-    {file = "multidict-6.0.5-cp312-cp312-musllinux_1_1_s390x.whl", hash = "sha256:14c2976aa9038c2629efa2c148022ed5eb4cb939e15ec7aace7ca932f48f9ba6"},
-    {file = "multidict-6.0.5-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:435a0984199d81ca178b9ae2c26ec3d49692d20ee29bc4c11a2a8d4514c67eda"},
-    {file = "multidict-6.0.5-cp312-cp312-win32.whl", hash = "sha256:9fe7b0653ba3d9d65cbe7698cca585bf0f8c83dbbcc710db9c90f478e175f2d5"},
-    {file = "multidict-6.0.5-cp312-cp312-win_amd64.whl", hash = "sha256:01265f5e40f5a17f8241d52656ed27192be03bfa8764d88e8220141d1e4b3556"},
-    {file = "multidict-6.0.5-py3-none-any.whl", hash = "sha256:0d63c74e3d7ab26de115c49bffc92cc77ed23395303d496eae515d4204a625e7"},
-    {file = "multidict-6.0.5.tar.gz", hash = "sha256:f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:8dec4936e9c3100156f8a2dc89c4b88d5c435175ff03413b443469c7c8c5f4d1"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:3c6b973f22eb18a789b1460b4b91bf04ae3f0c4234a0a6aa6b0a92f6f7b951d4"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ac07bad82163452a6884fe8fa0963fb98c2346ba78d779ec06bd7a6262132aee"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f5dfb42c4604dddc8e4305050aa6deb084540643ed5804d7455b5df8fe16f5e5"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:ea3d8a3d18833cf4304cd2fc9cbb1efe188ca9b5efef2bdac7adc20594a0e46b"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:d050b3361367a06d752db6ead6e7edeb0009be66bc3bae0ee9d97fb326badc2a"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-musllinux_1_1_i686.whl", hash = "sha256:bec0a414d016ac1a18862a519e54b2fd0fc8bbfd6890376898a6c0891dd82e9f"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:58c98fee265677f63a4385256a6d7683ab1832f3ddd1e66fe948d5880c21a169"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-win32.whl", hash = "sha256:8590b4ae07a35970728874632fed7bd57b26b0102df2d2b233b6d9d82f6c62ad"},
+    {file = "MarkupSafe-2.1.5-cp312-cp312-win_amd64.whl", hash = "sha256:823b65d8706e32ad2df51ed89496147a42a2a6e01c13cfb6ffb8b1e92bc910bb"},
+    {file = "MarkupSafe-2.1.5.tar.gz", hash = "sha256:d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"},
 ]
 
 [[package]]
@@ -264,32 +249,6 @@ files = [
 ]
 
 [[package]]
-name = "polyfactory"
-version = "2.16.0"
-requires_python = "<4.0,>=3.8"
-summary = "Mock data generation factories"
-groups = ["default"]
-dependencies = [
-    "faker",
-    "typing-extensions>=4.6.0",
-]
-files = [
-    {file = "polyfactory-2.16.0-py3-none-any.whl", hash = "sha256:168d8e50b77e91e35e691e8b3eedac43d7e423a6857fa26d473def96d53f0ecf"},
-    {file = "polyfactory-2.16.0.tar.gz", hash = "sha256:03d8c706b70c4782ac8e637d0f6ab52760a7d11b712da5936a95a8f7022b2688"},
-]
-
-[[package]]
-name = "pygments"
-version = "2.18.0"
-requires_python = ">=3.8"
-summary = "Pygments is a syntax highlighting package written in Python."
-groups = ["default"]
-files = [
-    {file = "pygments-2.18.0-py3-none-any.whl", hash = "sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a"},
-    {file = "pygments-2.18.0.tar.gz", hash = "sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"},
-]
-
-[[package]]
 name = "pytest"
 version = "8.2.2"
 requires_python = ">=3.8"
@@ -308,7 +267,7 @@ files = [
 
 [[package]]
 name = "python-dateutil"
-version = "2.9.0.post0"
+version = "2.8.2"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 summary = "Extensions to the standard Python datetime module"
 groups = ["default"]
@@ -316,8 +275,8 @@ dependencies = [
     "six>=1.5",
 ]
 files = [
-    {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
-    {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
+    {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
+    {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
 ]
 
 [[package]]
@@ -338,34 +297,14 @@ files = [
 ]
 
 [[package]]
-name = "rich"
-version = "13.7.1"
-requires_python = ">=3.7.0"
-summary = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
-groups = ["default"]
-dependencies = [
-    "markdown-it-py>=2.2.0",
-    "pygments<3.0.0,>=2.13.0",
-]
-files = [
-    {file = "rich-13.7.1-py3-none-any.whl", hash = "sha256:4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222"},
-    {file = "rich-13.7.1.tar.gz", hash = "sha256:9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"},
-]
-
-[[package]]
-name = "rich-click"
-version = "1.8.3"
+name = "rodi"
+version = "2.0.6"
 requires_python = ">=3.7"
-summary = "Format click help output nicely with rich"
+summary = "Implementation of dependency injection for Python 3"
 groups = ["default"]
-dependencies = [
-    "click>=7",
-    "rich>=10.7",
-    "typing-extensions",
-]
 files = [
-    {file = "rich_click-1.8.3-py3-none-any.whl", hash = "sha256:636d9c040d31c5eee242201b5bf4f2d358bfae4db14bb22ec1cafa717cfd02cd"},
-    {file = "rich_click-1.8.3.tar.gz", hash = "sha256:6d75bdfa7aa9ed2c467789a0688bc6da23fbe3a143e19aa6ad3f8bac113d2ab3"},
+    {file = "rodi-2.0.6-py3-none-any.whl", hash = "sha256:d299276be19842133def84dde365771d11a5195b76be0595eae9c1ecad818446"},
+    {file = "rodi-2.0.6.tar.gz", hash = "sha256:f533e315d84b63824efcc67526a156ad5fb0a158f1ccbc41e0db3944d0c08693"},
 ]
 
 [[package]]
@@ -410,21 +349,10 @@ name = "sniffio"
 version = "1.3.1"
 requires_python = ">=3.7"
 summary = "Sniff out which async library your code is running under"
-groups = ["default", "test"]
+groups = ["test"]
 files = [
     {file = "sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"},
     {file = "sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"},
-]
-
-[[package]]
-name = "typing-extensions"
-version = "4.12.2"
-requires_python = ">=3.8"
-summary = "Backported and Experimental Type Hints for Python 3.8+"
-groups = ["default"]
-files = [
-    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
-    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
 
 [[package]]
