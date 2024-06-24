@@ -3,9 +3,10 @@
         "aconnect",
         "aiter",
         "anext",
+        "blacksheep",
         "httpx",
         "koneko",
-        "litestar",
-        "pytestmark"
+        "pytestmark",
+        "uvicorn"
     ]
 }
