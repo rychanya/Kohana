@@ -1,47 +1,51 @@
-from asyncio import Queue, TimeoutError, wait_for
-from collections.abc import AsyncGenerator
+from asyncio import Event, sleep
+from collections.abc import AsyncIterable
 
-from litestar import Litestar, MediaType, get, post
-from litestar.response import ServerSentEvent, ServerSentEventMessage
-from litestar.types import SSEData
+from blacksheep import Application, Request, Response, get, html
+from blacksheep.server.process import is_stopping
+from blacksheep.server.sse import ServerSentEvent, ServerSentEventsResponse
+
+app = Application()
 
 
-@get(path="/", media_type=MediaType.HTML)
-async def index() -> str:
-    # return "Hello, world!"
-    return """<html>
+@get("/")
+async def index() -> Response:
+    res = """<html>
     <body>
         <div>
             <span>Hello World!</span>
         </div>
+        <ul></ul>
     </body>
     <script>
         let eventSource;
         eventSource = new EventSource('/events');
+        const eventList = document.querySelector("ul");
+
+        eventSource.onmessage = (e) => {
+            const newElement = document.createElement("li");
+            newElement.textContent = `message: ${e.data}`;
+            eventList.appendChild(newElement);
+        };
     </script>
 </html>"""
+    return html(value=res)
 
 
-async def generator(queue: Queue[ServerSentEventMessage]) -> AsyncGenerator[SSEData, None]:
+async def stop_checker(request: Request, stop_event: Event):
     while True:
-        print(1)
-        try:
-            yield await wait_for(queue.get(), 1)
-        except TimeoutError:
-            pass
+        if is_stopping():
+            stop_event.set()
+        if await request.is_disconnected():
+            stop_event.set()
+        await sleep(1)
 
 
-@get(path="/events")
-async def events() -> ServerSentEvent:
-    queue: Queue[ServerSentEventMessage] = Queue()
-    await queue.put(ServerSentEventMessage(data="test"))
-    await queue.put(ServerSentEventMessage(data="test_2"))
-    return ServerSentEvent(generator(queue))
+async def sse_generator() -> AsyncIterable[ServerSentEvent]:
+    await sleep(0)
+    yield ServerSentEvent(data="1")
 
 
-@post(path="/events")
-async def create_event() -> str:
-    return "new event"
-
-
-app = Litestar(route_handlers=[index, events, create_event])
+@get("/events")
+async def events(request: Request):
+    return ServerSentEventsResponse(events_provider=sse_generator)
