@@ -6,6 +6,7 @@
         "blacksheep",
         "httpx",
         "koneko",
+        "openapidocs",
         "pytestmark",
         "uvicorn"
     ]
