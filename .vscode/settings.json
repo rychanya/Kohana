@@ -3,6 +3,7 @@
         "aconnect",
         "aiter",
         "anext",
+        "ASGI",
         "blacksheep",
         "httpx",
         "koneko",
